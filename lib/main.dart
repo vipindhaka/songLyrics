@@ -32,9 +32,13 @@ class _MyAppState extends State<MyApp> {
         .listen((ConnectivityResult connectivityResult) {
       if (connectivityResult == ConnectivityResult.none) {
         nav.currentState.pushReplacement(MaterialPageRoute(
-            builder: (BuildContext _) => Stack(
-                  alignment: Alignment.topCenter,
-                  children: [Text('No Internet Connection')],
+            builder: (BuildContext _) => Scaffold(
+                  appBar: AppBar(
+                    title: Text('songs'),
+                  ),
+                  body: Center(
+                    child: Text('No internet Connection'),
+                  ),
                 )));
       } else if (_previousResult == ConnectivityResult.none) {
         nav.currentState.pushReplacement(
